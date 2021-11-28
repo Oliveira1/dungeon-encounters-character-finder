@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/dungeon-encounters-character-finder/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/dungeon-encounters-character-finder/static/js/main.ca02cac2.chunk.js",
+    "main.js.map": "/dungeon-encounters-character-finder/static/js/main.ca02cac2.chunk.js.map",
+    "runtime-main.js": "/dungeon-encounters-character-finder/static/js/runtime-main.b139abef.js",
+    "runtime-main.js.map": "/dungeon-encounters-character-finder/static/js/runtime-main.b139abef.js.map",
+    "static/js/2.3847236e.chunk.js": "/dungeon-encounters-character-finder/static/js/2.3847236e.chunk.js",
+    "static/js/2.3847236e.chunk.js.map": "/dungeon-encounters-character-finder/static/js/2.3847236e.chunk.js.map",
+    "static/js/3.4c059da0.chunk.js": "/dungeon-encounters-character-finder/static/js/3.4c059da0.chunk.js",
+    "static/js/3.4c059da0.chunk.js.map": "/dungeon-encounters-character-finder/static/js/3.4c059da0.chunk.js.map",
+    "index.html": "/dungeon-encounters-character-finder/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/dungeon-encounters-character-finder/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.3847236e.chunk.js.LICENSE.txt": "/dungeon-encounters-character-finder/static/js/2.3847236e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b139abef.js",
+    "static/js/2.3847236e.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.ca02cac2.chunk.js"
+  ]
+}
