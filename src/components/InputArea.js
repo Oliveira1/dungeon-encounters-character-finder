@@ -24,7 +24,7 @@ export const InputArea = ({setResult}) =>{
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
             />
-            <Button marginRight={16} onClick={() => getResult(value)}>Default</Button>
+            <Button marginRight={16} onClick={() => getResult(value)}>Calculate</Button>
         </Card>
     )
 }
