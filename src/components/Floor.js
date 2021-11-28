@@ -1,36 +1,21 @@
 import React, {Component} from "react";
 import {getPossibleCombinations} from "../math/manhattanDistance";
 import {Heading, Pane, Paragraph} from "evergreen-ui";
+import {floorPrediction} from "../math/floorPrediction";
 
 
 export const Floor = (value) => {
     console.log(value);
     let combinations = getPossibleCombinations(value.value);
     let subHeader = 'There are no floors to display';
-    let currentFloor = -1;
-    let currentCount = 0;
-    let TopFloor = 0;
-    let count = 0;
-    console.log(combinations);
-    combinations?.forEach(cs => {
-        if (cs[0] != currentFloor) {
-            if (currentCount >= count) {
-                TopFloor = currentFloor<0?cs[0]:currentFloor;
-                count = currentFloor<0?combinations.length:currentCount;
-            }
-            currentCount = 0;
-            currentFloor = cs[0];
-        }
-        currentCount++;
-    })
-    let prob = count / combinations.length;
-    console.log("statistics", prob);
-    if (prob == 1) {
-        subHeader = 'It is definitely on floor ' + TopFloor + ' !!!';
-    } else if (prob >= 0.79) {
-       subHeader = 'Almost sure it is on floor ' + TopFloor + ' .';
-    } else if (prob >= 0.51) {
-        subHeader = 'It might be on floor ' + TopFloor + ' ...';
+    let fp = floorPrediction(combinations);
+    console.log("statistics", fp.prediction);
+    if (fp.prediction == 1) {
+        subHeader = `It is definitely on floor ${fp.floor} !!!`;
+    } else if (fp.prediction >= 0.79) {
+        subHeader = `Almost sure it is on floor ${fp.floor} .`;
+    } else if (fp.prediction >= 0.51) {
+        subHeader = `It might be on floor ${fp.floor} ...`;
     } else {
         subHeader = 'Try and input more combinations to get a better result';
     }
@@ -41,7 +26,7 @@ export const Floor = (value) => {
     combinations.forEach(e => lines.push(lineComponent(e)));
     return (
         <Pane>
-            <Heading>
+            <Heading is="h3">
                 {subHeader}
             </Heading>
             {lines}
