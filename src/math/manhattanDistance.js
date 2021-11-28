@@ -1,3 +1,5 @@
+import {dungeonTilesPerFloor} from "./dungeonTiles";
+
 export const getPossibleCombinations = (vectors) => {
     let resulting = [];
     console.log('possible combinations ', vectors);
@@ -5,6 +7,7 @@ export const getPossibleCombinations = (vectors) => {
     for (let vector of vectors) {
         if (vector.length != 4) continue;
         let r = getCoordinatesAtDistance(vector);
+        r = intersectWithDungeonTiles(r);
         if (!resulting.length) {
             resulting = r;
         } else {
@@ -32,6 +35,20 @@ const getCoordinatesAtDistance = (vector) => {
     return result;
 }
 
+const intersectWithDungeonTiles = (possibleVectors) => {
+    let resultingVectors = [];
+    possibleVectors.forEach(currentVector => {
+        const floor = currentVector[0];
+        const x = currentVector[2];
+        const y = currentVector[1];
+        if (dungeonTilesPerFloor[floor][x] && dungeonTilesPerFloor[floor][x].find(yTile => yTile == y)) {
+            resultingVectors.push(currentVector);
+        }
+
+    })
+    return resultingVectors;
+}
+
 const intersect = (a, b) => {
     var setB = new Set(b);
     return [...new Set(a)].filter(x => setB.has(x));
@@ -50,4 +67,4 @@ let x = [[29, 64, 61, 57],
     [0, 50, 50, 111]]
 //let x=[[0,50,50,1],[0,51,50,0]]
 
-console.log(getPossibleCombinations(x));
+//console.log(getPossibleCombinations(x));

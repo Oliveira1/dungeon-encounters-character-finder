@@ -18,7 +18,6 @@ function App() {
             <InputArea setResult={getResult} />
             <Card elevation={0}>
                 <Heading> Possible Floors and Coordinates</Heading>
-                <Heading is="h3" size={200}>Currently there is no mapping correlation with the actual game floors so some coordinates might lead to nowhere</Heading>
                 <Floor value={coordinates}/>
             </Card>
         </Pane>
